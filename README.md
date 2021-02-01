@@ -1,6 +1,6 @@
 # LB Current Time and Date
  Extension for LioranBoard which lets you retrieve current time and date.     
- Possible formats: Possible formats: 12h clock, 24h clock, date, month, week of year, military, timestamp (date+time), Unix.   
+Possible formats: 12h clock, 24h clock, date, month, week of year, military, timestamp (date+time), Unix.   
 
 
 
