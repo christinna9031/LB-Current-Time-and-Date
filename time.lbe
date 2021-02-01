@@ -1,0 +1,50 @@
+[extension_name]
+Get Current Time
+[insert_external]
+<div><p>Get Current Time extension is installed.  </p></div>
+<!--
+* @name: Get Current Time, @version: 1.2, @author: Christinna#9031
+* @link:
+* -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+[insert_command]
+lioranboardclient.send('{"type":"MESSAGE","topic":"ExtensionCommand","name":"Get Current Time","boxcount":2,"boxname1":"variable","boxtype1":"string","boxname2":"format|time_12h|time_24h|time_military|date|timestamp|unix|month|week_of_year|","boxtype2":"string"}');
+[insert_hook]
+case "GetCurrentTime":{
+	LBGetTime(LioranBoardJSON.variable, LioranBoardJSON.format)
+}break
+[insert_script]
+function LBGetTime (variable,format){
+
+	let result=""
+	
+	switch (format) {
+	case "unix":
+	result=moment().format('X')
+	break;
+	case "timestamp": 
+	result=moment().format('MM/DD/YYYY h:mm A')
+	break;
+	case "date":
+	result=moment().format('MM/DD/YYYY')
+	break;
+	case "time_24h": 
+	result=moment().format('HH:mm')
+	break;
+	case "time_12h": 
+	result=moment().format('LTS')
+	break;
+	case "time_military": 
+	result=moment().format('HHmmss')
+	break;
+	case "month": 
+	result=moment().format('MMM')
+	break;
+	case "week_of_year": 
+	result=moment().format('WW')
+
+	}
+	
+	lioranboardclient.send('{"type":"MESSAGE","topic":"SetValue","valuename":"'+variable+'","value":'+JSON.stringify(result)+'}');
+	}
+[insert_over]
