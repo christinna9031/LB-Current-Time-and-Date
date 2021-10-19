@@ -5,7 +5,7 @@ Possible formats: 12h clock, 24h clock, date, month, week of year, military, tim
 
 
 **How to install an extension:**
-1. Download the .lbe extension file
+1. Download the .lbe extension file from **Releases** section (please do not right click and save) 
 2. Click on Install Extension in your LioranBoard Receiver
 3. Select the extension file you downloaded 
 4. Select your default Transmitter you are using. Make 100% sure it is the correct one. 
